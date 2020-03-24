@@ -25,7 +25,7 @@ class imdbScraper(object):
         for i in range(self.firstSeason,self.lastSeason,1):
             urlInfo = 'season=' + str(i) + '&ref_=tt_eps_sn_' + str(i) 
             
-            
+            #TODO: hanlde exceptions
             url = self.urlShow + '?' + urlInfo
             page = requests.get(url)
             soup = BeautifulSoup(page.content, 'html.parser')
