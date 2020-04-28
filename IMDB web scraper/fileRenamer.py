@@ -21,7 +21,7 @@ path = r'C:\Users\Gerardo\Personal\Media\Shows\Modern Family\Season 11'
 filePrefix = 'Modern Family S'
 #Valid chars to use in file names
 validChars = "-_.,()&!' %s%s" % (string.ascii_letters, string.digits)
-
+titles = s.getData()
 
 i = 0
 for filename in os.listdir(path):
@@ -30,7 +30,7 @@ for filename in os.listdir(path):
     #TODO: check indexError whenthere is a directory inside the folder
     if not os.path.isdir(filename):
         #Creates file name  with specified prefix, and removes unwanted characters from the data downloaded
-        newName = filePrefix + ''.join(c for c in s.getData()[i] if c in validChars)
+        newName = filePrefix + ''.join(c for c in titles[i] if c in validChars)
         oldName = filename
         filename , fileExtension = os.path.splitext(filename)       
         
@@ -39,6 +39,6 @@ for filename in os.listdir(path):
         
         # # rename() function will 
         # # rename all the files 
-        os.rename( path + "\\" + oldName, path + "\\" + newName + fileExtension) 
-        #print("Rename file " + oldName + " to " + newName + fileExtension + " ?")
+        #os.rename( path + "\\" + oldName, path + "\\" + newName + fileExtension) 
+        print("Rename file " + oldName + " to " + newName + fileExtension + " ?")
         i += 1
